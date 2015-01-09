@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
+from restapi.models import LookletShotList
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
@@ -9,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://looklet:L00klet@prodimages.ny.b
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-SQLALCHEMY_DATABASE_URI = 'mysql://looklet:L00klet@prodimages.ny.bluefly.com:3301/www_django')
+SQLALCHEMY_DATABASE_URI = 'mysql://looklet:L00klet@prodimages.ny.bluefly.com:3301/www_django'
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
 from flask import Flask, request, jsonify
@@ -33,7 +34,7 @@ def lookletshots():
         return jsonify(items=json_results)
 
     elif request.method == 'POST':
-
+        print 'POST REQUEST'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)

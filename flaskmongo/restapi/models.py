@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from restapi.database Base
+from restapi.database import Base
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
