@@ -3,21 +3,11 @@
 from flask import Flask
 app = Flask(__name__)
 
-
 @app.route('/')
 def home_page():
     online_users = mongo.db.users.find({'online': True})
     return render_template('index.html', online_users=online_users)
 
-@app.route('/uploads/<path:filename>', methods=['POST'])
-def save_upload(filename):
-    mongo.save_file(filename, request.files['file'])
-    return redirect(url_for('get_upload', filename=filename))
-
-
-@app.route('/uploads/<path:filename>')
-def get_upload(filename):
-    return mongo.send_file(filename)
     
 app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -25,6 +15,16 @@ def login():
         do_the_login()
     else:
         show_the_login_form()
+
+
+@app.route('/uploads/<path:filename>', methods=['POST'])
+def save_upload(filename):
+    mongo.save_file(filename, request.files['file'])
+    return redirect(url_for('get_upload', filename=filename))
+
+@app.route('/uploads/<path:filename>')
+def get_upload(filename):
+    return mongo.send_file(filename)
 
 @app.route('/user/<username>')
 def user_profile(username):
