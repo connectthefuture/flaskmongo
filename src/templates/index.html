@@ -1,34 +1,32 @@
-{% extends 'base/base.html' %}
- 
-{% block extra_js %}
- 
+{% extends "_layouts/base.html" %}
+{% block title %}<title>FlaskEchoDemo</title>{% endblock title %}
+{% block jshead %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
-$( document ).ready( function() {
-$( '#searchSubmit' ).click( function() {
-q = $( '#q' ).val();
-$( '#results' ).html( '&nbsp;' ).load( '{% url demo_user_search %}?q=' + q );
-});
-});
- 
-$( document ).ajaxStart( function() {
-$( '#spinner' ).show();
-}).ajaxStop( function() {
-$( '#spinner' ).hide();
-});
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>   
+{% endblock jshead %}
+{% block content %}
+<script type="text/javascript">
+  $(function() {
+    $("#submitBtn").click(function() {
+         $.ajax({
+            type: "GET",
+            url: $SCRIPT_ROOT + "/echo/",
+            contentType: "application/xml; charset=utf-8",
+            data: { echoValue: $('input[name="echoText"]').val() },
+            success: function(data) {
+                $('#echoResult').text(data.value);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });    
+    });
+  });
 </script>
- 
-{% endblock %}
- 
-{% block main %}
- 
-<div>
-<input id="q" type="text"/>
-<input id="searchSubmit" type="submit" value="Search"/>
-<br/>
-<span class="hint">Type in a query string to search for users</span>
-<div class="margin">
-<span id="spinner"><img src="http://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"/></span>
-<div id="results"></div>
-</div>
-</div>
+<strong>Enter a value to echo back:</strong>
+<input size="10" id="echoText" name="echoText" type="text">
+<button type="button" id="submitBtn" name="submitBtn">Submit via AJAX</button><br><br>
+<strong><div id="echoResult"></div></strong>
 {% endblock %}
