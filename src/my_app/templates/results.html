@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% for result in results %}
+    {% block imagecell %}{% endblock %}
+    {{ result.id }}  <br />
+{% endfor %}
+
+
+{% endblock %}

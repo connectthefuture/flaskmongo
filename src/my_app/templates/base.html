@@ -1,0 +1,19 @@
+{% extends '_layouts.html' %}
+{% block title %}Flask/jQuery AJAX Search{% endblock %}
+{% block extrajshead %}
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.js"></script>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div id="centered">
+
+{% block main %}
+    {% block results %}{% endblock %}
+
+{% endblock %}
+
+</div>
+{% endblock %}
