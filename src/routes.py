@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, render_template
 
+app = Flask(__name__)
+app.config['DEBUG'] = True
 
 @app.route('/', methods=['GET'])
 def home_page():
