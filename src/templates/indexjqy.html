@@ -21,7 +21,7 @@ $( document ).ajaxStart( function() {
 
 {% block main %}
 <div id="mainSearch">
-  <form method="GET" id="mainForm">
+  <form method="GET" id="mainForm" enctype="multipart/form-data">
 	<input id="q" type="text" name="q"/>
 	<input id="searchSubmit" type="submit" value="Search"/><br/>
 	<span class="hint">Type in a query string to search for users</span>
