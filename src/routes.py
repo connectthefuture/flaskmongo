@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home_page():
     online_users = mongo.db.users.find()
-    return render_template('index.html', online_users=online_users)
+    return render_template('indexjqy.html', online_users=online_users)
 
 
 app.route('/login', methods=['GET', 'POST'])
