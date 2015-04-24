@@ -4,10 +4,10 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
+
 def home_page():
-	results = 'commented out mongo call'
-	# mongo.db.users.find()
+    results = 'commented out mongo call'
     return render_template('templates/indexjqy.html', results=results)
 
 
