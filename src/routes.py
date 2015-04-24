@@ -3,13 +3,14 @@
 from flask import Flask
 app = Flask(__name__)
 
+
 @app.route('/')
 def home_page():
     online_users = mongo.db.users.find()
     return render_template('indexjqy.html', online_users=online_users)
 
 
-app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         do_the_login()
