@@ -1,32 +1,35 @@
-{% extends "results.html" %}
+{% extends "h2.html" %}
 
-{% block imagecell %}
-<table class="table table-bordered table-striped" style="width: 250px;">
-	<tbody>
-		<tr>
+{% block container %}
+<div class="top-pad">
+    <table class="table table-bordered table-striped">
+	  <tbody>
+        <h4>{{ full_name(asset) }}</h4>
+        <tr>
 			<th> Filename</th>
-			<td>{{ results.filename }}</td>
+			<td>{{ asset['filename'] }}</td>
 		</tr>
 		<tr>
 			<th align="left" scope="row"> Object ID</th>
-			<td>{{ results._id }}</td>
+			<td>{{ asset['_id'] }}</td>
 		</tr>
 		<tr>
 			<th align="left" scope="row"> MD5 Checksum</th>
-			<td>{{ results.md5 }}</td>
+			<td>{{ asset['md5'] }}</td>
 		</tr>
 		<tr>
 			<th align="left" scope="row"> Upload Date</th>
-			<td>{{ results.uploadDate }}</td>
+			<td>{{ asset['uploadDate'] }}</td>
 		</tr>
 		<tr>
 			<th align="left" scope="row"> Content Header</th>
-			<td>{{ results.contentType }}</td>
+			<td>{{ asset['contentType'] }}</td>
 		</tr>
 		<tr>
 			<th align="left" scope="row"> Metadata</th>
-			<td>{{ results.metadata }}</td>
+			<td>{{ asset['metadata'] }}</td>
 		</tr>
-	</tbody>
-</table>
+	  </tbody>
+    </table>
+</div>
 {% endblock %}
