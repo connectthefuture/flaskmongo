@@ -4,11 +4,10 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
-
+@app.route('/', methods=['GET'])
 def home_page():
     results = 'commented out mongo call'
-    return render_template('templates/indexjqy.html', results=results)
+    return render_template('indexjqy.html', results=results)
 
 
 @app.route('/login', methods=['GET', 'POST'])
