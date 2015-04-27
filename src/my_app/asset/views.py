@@ -5,7 +5,7 @@ from flask import render_template
 from flask import Blueprint
 from my_app.asset.models import ASSETS
 
-asset_blueprint = Blueprint('asset', __name__)
+asset_blueprint = Blueprint('product', __name__)
 
 
 @asset_blueprint.route('/')
@@ -14,7 +14,7 @@ def home():
     return render_template('home.html', assets=ASSETS)
 
 
-@asset_blueprint.route('/asset/<key>')
+@asset_blueprint.route('/product/<key>')
 def asset(key):
     asset = ASSETS.get(key)
     if not asset:
