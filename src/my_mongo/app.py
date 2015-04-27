@@ -11,10 +11,10 @@ app = Flask(
 app.config.from_object('my_mongo.config')
 
 ## DB
-from flask.ext.mongoengine import MongoEngine
+import flask-mongoengine
 from redis import Redis
 app.config['MONGODB_SETTINGS'] = {'DB': 'images'}
-db = MongoEngine(app)
+db = flask-mongoengine.MongoEngine(app)
 redis = Redis()
 
 # Model views
