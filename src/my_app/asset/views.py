@@ -4,8 +4,12 @@ from werkzeug import abort
 from flask import render_template
 from flask import Blueprint
 from my_app.asset.models import ASSETS
-from my_app import db
+from my_app import db as dbobj
 asset_blueprint = Blueprint('product', __name__)
+
+cnx = dbobj.connect()
+
+db = cnx['gridfs_mrktplce']
 
 
 @asset_blueprint.route('/')
@@ -53,7 +57,7 @@ def imagefs(filename):
 
 @image_blueprint.route('/images')
 def images():
-    images = db['fs.files'].findall()[:30]
+    images = db['fs.files'].find()[:30]
     return render_template('image.html', images=images)
 
 # import redis
