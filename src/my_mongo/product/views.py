@@ -26,7 +26,7 @@ def images():
 
 
 
-from my_mongo.app import redis
+import redis
 @product.route('/product/<id>')
 def image(id):
    image = Image.query.get_or_404(id)

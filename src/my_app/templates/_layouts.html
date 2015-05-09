@@ -12,12 +12,13 @@
     <meta name="author" content="{% block meta_author %}{% endblock %}">
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
-    <meta name="viewport" content="width=device-width">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     {% endblock %}
 
     {% block cdn_css %}
-    {#    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css">#}
-    {#    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">#}
+    <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.10.3.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     {% endblock %}
 
     <!-- All JavaScript at the bottom, except this Modernizr build.
@@ -28,6 +29,18 @@
     {% endblock %}
     {% block extrajshead %}{% endblock %}
     <script src="static/js/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <!-- Buffering of the Nav Styling -->
+    <style>
+        body {
+          min-height: 2000px;
+        }
+        .navbar-static-top {
+          margin-bottom: 19px;
+        }
+        .form-group {
+            max-width: 15%;
+        }
+    </style>
 </head>
 
 
@@ -45,7 +58,7 @@
 <div role="main">
 {% block nav_global %}
 <!-- Fixed navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	  <!-- Brand and toggle get grouped for better mobile display -->
 	  <div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -70,8 +83,8 @@
 		</ul>
 
 		  <form class="navbar-form navbar-right" role="searchall" enctype="multipart/form-data" method="POST" action="/searcher/findall">
-			  <div class="form-group" style="width: 150px;">
-				  <input type="text" class="form-control" name="navSearch" id="idNavSearch" placeholder="Search">
+			  <div class="form-group">
+				  <input type="search" class="form-control" name="navSearch" id="idNavSearch" placeholder="Search">
 			  </div>
 			  <button type="submit" class="btn btn-primary" name="submit" id="submit"><span class="glyphicon glyphicon-search"></span> Search </button>
 		  </form>
