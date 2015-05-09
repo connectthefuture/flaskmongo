@@ -9,7 +9,6 @@ asset_blueprint = Blueprint('product', __name__)
 
 cnx = dbobj.connect()
 
-db = cnx['gridfs_mrktplce']
 
 
 @asset_blueprint.route('/')
@@ -40,23 +39,25 @@ def image_home():
 
 @image_blueprint.route('/image/<colorstyle>')
 def image(colorstyle):
-   image = db['looklet_shot_list'].find_one_or_404({'_id': colorstyle})
-   return render_template('lookletrecord.html', asset=image)
-
-   #return 'Image - %s, $%s' % (image.name, image.md5)
-   return 'Image - %s, $%s' % (image.colorstyle, image.username)
+    db = cnx['images']
+    image = db['looklet_shot_list'].find_one_or_404({'_id': colorstyle})
+    return render_template('lookletrecord.html', asset=image)
+    #return 'Image - %s, $%s' % (image.name, image.md5)
+    return 'Image - %s, $%s' % (image.colorstyle, image.username)
 
 
 @image_blueprint.route('/imagefs/<filename>')
 def imagefs(filename):
-   image = db['fs.files'].find_one_or_404({'_id': filename})
-   return render_template('image.html', image=image)
+    db = cnx['gridfs_mrktplce']
+    image = db['fs.files'].find_one_or_404({'_id': filename})
+    return render_template('image.html', image=image)
+    return 'Image - %s, $%s' % (image.name, image.md5)
+    #return 'Image - %s, $%s' % (image.colorstyle, image.username)
 
-   return 'Image - %s, $%s' % (image.name, image.md5)
-   #return 'Image - %s, $%s' % (image.colorstyle, image.username)
 
 @image_blueprint.route('/images')
 def images():
+    db = cnx['gridfs_mrktplce']
     images = db['fs.files'].find()[:30]
     return render_template('image.html', images=images)
 
