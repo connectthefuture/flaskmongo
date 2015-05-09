@@ -1,7 +1,14 @@
 __author__ = 'johnb'
 
 from flask import Flask
-app = Flask(__name__, static_url_path='/static', static_folder='static')
+
+app = Flask(
+    __name__,
+    static_url_path='/static',
+    static_folder=str(__name__) + '/static'
+)
+
+#, static_url_path='/static', static_folder='static')
 app.config.from_object('my_app.config')
 
 

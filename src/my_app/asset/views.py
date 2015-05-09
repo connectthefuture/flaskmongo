@@ -1,6 +1,6 @@
 __author__ = 'johnb'
 
-from werkzeug import http
+from werkzeug import abort
 from flask import render_template
 from flask import Blueprint
 from my_app.asset.models import ASSETS
@@ -51,7 +51,7 @@ def imagefs(filename):
     db = cnx['gridfs_mrktplce']
     image = db['fs.files'].find_one_or_404({'_id': filename})
     return render_template('image.html', image=image)
-    return 'Image - %s, $%s' % (image.name, image.md5)
+    return 'Image - %s, $%s' % (image.filename, image.md5)
     #return 'Image - %s, $%s' % (image.colorstyle, image.username)
 
 
