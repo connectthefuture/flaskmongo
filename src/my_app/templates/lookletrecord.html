@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+
+{% block container %}
+<div class="top-pad">
+    <table class="table table-bordered table-striped">
+	  <tbody>
+        <h4>{{ full_name(asset) }}</h4>
+        <tr>
+			<th> Colorstyle</th>
+			<td>{{ asset['colorstyle'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Object ID</th>
+			<td>{{ asset['_id'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Reshoot</th>
+			<td>{{ asset['reshoot'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Timestamp</th>
+			<td>{{ asset['timestamp'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Photo Date</th>
+			<td>{{ asset['photodate'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> User</th>
+			<td>{{ asset['username'] }}</td>
+		</tr>
+	  </tbody>
+    </table>
+</div>
+{% endblock %}

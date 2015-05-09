@@ -1,0 +1,76 @@
+{% extends "home.html" %}
+
+{% if images %}
+{% for image in images %}
+
+{% block container %}
+<div class="top-pad">
+    <table class="table table-bordered table-striped">
+	  <tbody>
+        <h4>{{ full_name(image) }}</h4>
+        <tr>
+			<th> Filename</th>
+			<td>{{ image['filename'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Object ID</th>
+			<td>{{ image['_id'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> MD5 Checksum</th>
+			<td>{{ image['md5'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Upload Date</th>
+			<td>{{ image['uploadDate'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Content Header</th>
+			<td>{{ image['contentType'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Metadata</th>
+			<td>{{ image['metadata'] }}</td>
+		</tr>
+	  </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endfor %}
+
+{% else %}
+
+{% block container %}
+<div class="top-pad">
+    <table class="table table-bordered table-striped">
+	  <tbody>
+        <h4>{{ full_name(image) }}</h4>
+        <tr>
+			<th> Filename</th>
+			<td>{{ image['filename'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Object ID</th>
+			<td>{{ image['_id'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> MD5 Checksum</th>
+			<td>{{ image['md5'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Upload Date</th>
+			<td>{{ image['uploadDate'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Content Header</th>
+			<td>{{ image['contentType'] }}</td>
+		</tr>
+		<tr>
+			<th align="left" scope="row"> Metadata</th>
+			<td>{{ image['metadata'] }}</td>
+		</tr>
+	  </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endif %}

@@ -6,7 +6,7 @@
 $( document ).ready( function() {
 	$( '#searchSubmit' ).click( function() {
 		q = $( '#q' ).val();
-	$( '#results' ).html( '&nbsp;' ).load("{{ url_for('image.id', key=id) }}");
+	$( '#results' ).html( '&nbsp;' ).load("{{ url_for('image.imagefs', filename=q) }}");
 	});
 });
 
