@@ -17,10 +17,10 @@ app.config.from_object('my_app.config')
 ## DB ##
 from flask_mongoengine import MongoEngine
 #from redis import Redis
-app.config['MONGODB_SETTINGS'] = {'DB': 'gridfs_mrktplce', 'HOST': 'mongodb://relic7:mongo7@ds031852.mongolab.com:31852/gridfs_mrktplce'
+app.config['MONGODB_SETTINGS'] = {'DB': 'gridfs_mrktplce', 'HOST': 'mongodb://relic7:mongo7@ds031852.mongolab.com:31852/gridfs_mrktplce'}
                                   #'DB': 'images',
                                   #'HOST': 'mongodb://relic7:mongo7@ds031591.mongolab.com:31591/images'
-                                  }
+ #                                 }
 #app.config['MONGODB_SETTINGS'] = {'DB': 'gridfs_mrktplce'}
 db = MongoEngine(app)
 #redis = Redis()
