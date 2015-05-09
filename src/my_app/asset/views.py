@@ -59,7 +59,7 @@ def imagefs(filename):
 def images():
     db = cnx['gridfs_mrktplce']
     images = db['fs.files'].find()[:30]
-    return render_template('image.html', images=images)
+    return render_template('image.html', images=images, image=images)
 
 # import redis
 # @image_blueprint.route('/image/<id>')

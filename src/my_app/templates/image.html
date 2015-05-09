@@ -8,7 +8,7 @@
 <div class="top-pad">
     <table class="table table-bordered table-striped">
 	  <tbody>
-        <h4>{{ full_name(image) }}</h4>
+        <h4>{{ image['filename'] }}</h4>
         <tr>
 			<th> Filename</th>
 			<td>{{ image['filename'] }}</td>
@@ -41,11 +41,10 @@
 
 {% else %}
 
-{% block results %}
 <div class="top-pad">
     <table class="table table-bordered table-striped">
 	  <tbody>
-        <h4>{{ full_name(image) }}</h4>
+        <h4>{{ image['filename'] }}</h4>
         <tr>
 			<th> Filename</th>
 			<td>{{ image['filename'] }}</td>
@@ -73,6 +72,5 @@
 	  </tbody>
     </table>
 </div>
-{% endblock %}
 {% endif %}
 {% endblock %}
