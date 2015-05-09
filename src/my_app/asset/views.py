@@ -1,6 +1,6 @@
 __author__ = 'johnb'
 
-from werkzeug import abort
+from werkzeug import http
 from flask import render_template
 from flask import Blueprint
 from my_app.asset.models import ASSETS
