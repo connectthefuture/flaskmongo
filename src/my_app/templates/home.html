@@ -6,7 +6,7 @@
 $( document ).ready( function() {
 	$( '#searchSubmit' ).click( function() {
 		q = $( '#q' ).val();
-	$( '#results' ).html( '&nbsp;' ).load("{{ url_for('product.product', key=id) }}");
+	$( '#results' ).html( '&nbsp;' ).load("{{ url_for('image.id', key=id) }}");
 	});
 });
 
@@ -23,7 +23,7 @@ $( document ).ajaxStart( function() {
 <div id="mainSearch">
   <form method="GET" id="mainForm" enctype="multipart/form-data">
 	<input id="q" type="text" name="q"/>
-	<input id="searchSubmit" type="submit" name="submit"/><br/>
+	<button id="searchSubmit" class="btn btn-success" type="submit" name="submit">Submit</button>
 	<span class="hint">Type in a query string to search for users</span>
 	<div class="margin">
   		<span id="spinner"><img src="http://upload.wikimedia.org/wikipedia/commons/d/de/Ajax-loader.gif"/></span>
