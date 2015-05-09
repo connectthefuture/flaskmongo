@@ -1,9 +1,10 @@
 {% extends "home.html" %}
 
+{% block main %}
+
 {% if images %}
 {% for image in images %}
-
-{% block container %}
+{% block results %}
 <div class="top-pad">
     <table class="table table-bordered table-striped">
 	  <tbody>
@@ -40,7 +41,7 @@
 
 {% else %}
 
-{% block container %}
+{% block results %}
 <div class="top-pad">
     <table class="table table-bordered table-striped">
 	  <tbody>
@@ -74,3 +75,4 @@
 </div>
 {% endblock %}
 {% endif %}
+{% endblock %}

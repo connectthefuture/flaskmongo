@@ -23,7 +23,6 @@ def asset(key):
 
 
 
-
 from my_app.asset.models import Image
 
 image_blueprint = Blueprint('image', __name__)
