@@ -6,13 +6,16 @@ db = db.connect()
 
 col = db['images'] #['looklet_shot_list']
 
-class Image():
-    pass
-    # created_at = db.StringField(default=datetime.datetime.now, required=True)
-    # colorstyle = db.StringField(max_length=9, required=True)
-    # reshoot = db.StringField(max_length=1, required=False)
-    # username = db.StringField(required=False)
-    # timestamp = db.StringField(required=False)
+from flask_mongoengine import MongoEngine, Document
+#dstr = MongoEngine.DynamicDocument
+class Image(Document):
+    #pass
+    id = Document.StringField
+    created_at = Document.StringField(default=datetime.datetime.now, required=True)
+    colorstyle = Document.StringField(max_length=9, required=True)
+    reshoot = Document.StringField(max_length=1, required=False)
+    username = Document.StringField(required=False)
+    timestamp = Document.StringField(required=False)
 
     def __repr__(self):
         return '<Image %r>' % self.id
