@@ -4,5 +4,5 @@ Jinja2
 Django==1.7.1
 MarkupSafe==0.23
 pymongo==2.7.2
-requests==2.5.1
+requests==2.20.0
 Werkzeug==0.9.6
