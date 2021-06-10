@@ -1,7 +1,7 @@
 Flask==0.10.1
 itsdangerous==0.24
 Jinja2
-Django==1.7.1
+Django==2.2.24
 MarkupSafe==0.23
 pymongo==2.7.2
 requests==2.5.1
